@@ -11,9 +11,9 @@ export const checkValidData = (email,password,name) => {
         return "Password is not valid";
     }
 
-    if(!isNameValid){
-        return "Name is not valid";
-    } 
+    // if(!isNameValid){
+    //     return "Name is not valid";
+    // } 
 
     return null;
 }
