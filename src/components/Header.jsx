@@ -1,15 +1,18 @@
 import React from "react";
-import { useState } from "react";
-import { signOut } from "firebase/auth";
+import { useState,useEffect } from "react";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser, removeUser } from "../utils/userSlice";
+
 // import appStore from "../utils/appStore";
 
 
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [profileArrow, setProfileArrow] = useState(false);
   // console.log(profileArrow);
 
@@ -30,6 +33,27 @@ const Header = () => {
         navigate("/error");
       });
   };
+
+
+  useEffect(() => {
+    //This will be called whenever user signs in signs out
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+        //Signup
+      if (user) {
+        const {uid,email,displayName, photoURL} = user;
+        dispatch(addUser({uid: uid, email: email, displayName: displayName, photoUrl: photoURL}));
+        navigate("/browse")
+      } else {
+        //Signout
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+
+    //Unsubscribe when component unmounts
+    return () => ubsubscribe();
+  }, []);
+
 
   return (
     <div>
