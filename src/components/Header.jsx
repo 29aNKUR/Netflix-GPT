@@ -5,6 +5,7 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
+import { NETFLIX_LOGO } from "../utils/Constants";
 
 // import appStore from "../utils/appStore";
 
@@ -18,7 +19,7 @@ const Header = () => {
 
 
   const user = useSelector(state=>state.user);
-  console.log("user", user);  
+  // console.log("user", user);  
 
   const toggle = () => {
     setProfileArrow(!profileArrow);
@@ -51,7 +52,7 @@ const Header = () => {
     });
 
     //Unsubscribe when component unmounts
-    return () => ubsubscribe();
+    return () => unsubscribe();
   }, []);
 
 
@@ -59,13 +60,13 @@ const Header = () => {
     <div>
       <div className="absolute w-screen bg-gradient-to-b from-black px-2 py-2 z-10 flex justify-between">
         <img
-          className="w-48"
-          src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+          className="w-32"
+          src={NETFLIX_LOGO}
           alt="netflix logo"
         />
         {user &&        <div className="flex p-2">
           <img
-            className="w-12 h-12 rounded-lg"
+            className="w-10 h-10 rounded-lg"
             src={user?.photoUrl}
             alt="user logo"
           />

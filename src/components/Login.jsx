@@ -9,6 +9,8 @@ import { auth } from "../utils/firebase";
 import { updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { USER_AVATAR } from "../utils/Constants";
+
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -44,8 +46,8 @@ const Login = () => {
           //updating user profile
           updateProfile(user, {
             displayName: name1,
-            photoURL:
-              "https://media.licdn.com/dms/image/D5603AQG9V4s_WaowrQ/profile-displayphoto-shrink_100_100/0/1675706239816?e=1698883200&v=beta&t=a-PMd8fBGDXfrmFQ5R-zaERb5uWB6pCXVuj4ajwj0yU",
+            photoURL:USER_AVATAR 
+             ,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;

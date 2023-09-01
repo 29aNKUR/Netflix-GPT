@@ -23,19 +23,7 @@ const Body = () => {
     },
   ]);
 
-  useEffect(() => {
-    //This will be called whenever user signs in signs out
-    onAuthStateChanged(auth, (user) => {
-        //Signup
-      if (user) {
-        const {uid,email,displayName, photoURL} = user;
-        dispatch(addUser({uid: uid, email: email, displayName: displayName, photoUrl: photoURL}));
-      } else {
-        //Signout
-        dispatch(removeUser());
-      }
-    });
-  }, []);
+
 
   return (
     <div>
