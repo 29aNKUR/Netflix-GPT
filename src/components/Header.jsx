@@ -16,7 +16,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const [profileArrow, setProfileArrow] = useState(false);
   // console.log(profileArrow);
-  const showGptSearch = useSelector(store => store.gpt.showGptSearch);
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
 
   const user = useSelector((state) => state.user);
   // console.log("user", user);
@@ -68,7 +68,7 @@ const Header = () => {
   const handleLanguageChange = (e) => {
     // console.log(e.target.value)
     dispatch(changeLanguage(e.target.value));
-  }
+  };
 
   return (
     <div>
@@ -76,21 +76,32 @@ const Header = () => {
         <img className="w-32" src={NETFLIX_LOGO} alt="netflix logo" />
         {user && (
           <div className="flex p-2">
-          { showGptSearch && <select className="px-2 mx-2 bg-gray-900 text-white" onChange={handleLanguageChange}>
-            {SUPPORTED_LANGUAGES.map((lang) => (<option key={lang.identifier}>{lang.name}</option>))}
-            </select>}
+            {showGptSearch && (
+              <select
+                className="px-2 mx-2 bg-gray-900 text-white"
+                onChange={handleLanguageChange}
+              >
+                {SUPPORTED_LANGUAGES.map((lang) => (
+                  <option key={lang.identifier}>{lang.name}</option>
+                ))}
+              </select>
+            )}
 
-           {showGptSearch ?  (<button
-              className="rounded-lg mx-6 px-6 h-10 bg-purple-800 text-white"
-              onClick={() => handleGptSearchClick()}
-            >
-              Homepage
-            </button>) : (<button
-              className="rounded-lg mx-6 px-6 h-10 bg-purple-800 text-white"
-              onClick={() => handleGptSearchClick()}
-            >
-                   Gpt Search
-            </button>)}
+            {showGptSearch ? (
+              <button
+                className="rounded-lg mx-6 px-6 h-10 bg-purple-800 text-white"
+                onClick={() => handleGptSearchClick()}
+              >
+                Homepage
+              </button>
+            ) : (
+              <button
+                className="rounded-lg mx-6 px-6 h-10 bg-purple-800 text-white"
+                onClick={() => handleGptSearchClick()}
+              >
+                Gpt Search
+              </button>
+            )}
             <img
               className="w-10 h-10 rounded-lg"
               src={user?.photoUrl}
