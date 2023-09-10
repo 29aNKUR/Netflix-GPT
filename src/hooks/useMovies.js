@@ -3,6 +3,7 @@ import { API_OPTIONS } from "../utils/Constants";
 import { useDispatch } from "react-redux";
 
 //Generic hook to fetch movies of different categories
+//Not of use in actual code base. Written just for an experiment
 const useMovies =  (reducerName,MOVIES_URL) => {
 
     const dispatch = useDispatch();

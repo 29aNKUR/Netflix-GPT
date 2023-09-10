@@ -7,6 +7,7 @@ import { useEffect } from "react";
 const useMovieTrailer = (movieId) => {
     const dispatch = useDispatch();
 
+    //for memoization
     const movieTrailer = useSelector(store => store.movies.trailerVideo);
  
     // fetch trailer video and updating the store with trailer video data 
@@ -27,7 +28,7 @@ const useMovieTrailer = (movieId) => {
     };
 
     useEffect(() => {
-        getMovieVideos();
+        !movieTrailer && getMovieVideos();
       }, []);
 
 }
