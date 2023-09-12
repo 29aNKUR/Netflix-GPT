@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { NETFLIX_LOGO, SUPPORTED_LANGUAGES } from "../utils/Constants";
@@ -73,7 +73,7 @@ const Header = () => {
   return (
     <div>
       <div className="absolute w-screen bg-gradient-to-b from-black px-2 py-2 z-10 flex justify-between flex flex-col md:flex-row">
-        <img className="w-44 mx-auto md:mx-0" src={NETFLIX_LOGO} alt="netflix logo" />
+        <Link to="/"><img className="w-44 mx-auto md:mx-0" src={NETFLIX_LOGO} alt="netflix logo" /></Link> 
         {user && (
           <div className="flex p-4">
             {showGptSearch && (
