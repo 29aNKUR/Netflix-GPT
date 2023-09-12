@@ -41,7 +41,7 @@ const MovieDetails = () => {
     <div>
       <div className="absolute z-20 text-white lg:bg-gradient-to-r lg:from-black  w-screen aspect-video">
         <Link to="/">
-          <button className="text-xl md:text-3xl bg-red-700 text-white py-2 px-3 m-3 rounded-l-full">
+          <button className="text-xl md:text-2xl bg-red-700 text-white py-2 px-3 m-3 rounded-l-full">
             Back
           </button>
         </Link>
