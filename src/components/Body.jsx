@@ -7,6 +7,7 @@ import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { useEffect } from "react";
+import MovieDetails from "./MovieDetails";
 
 
 const Body = () => {
@@ -21,6 +22,10 @@ const Body = () => {
       path: "browse",
       element: <Browse />,
     },
+    {
+      path: "browse/:movieId",
+      element: <MovieDetails/>,
+    }
   ]);
 
 
