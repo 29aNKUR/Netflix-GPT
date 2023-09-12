@@ -39,18 +39,18 @@ const MovieDetails = () => {
 
   return (
     <div>
-      <div className="absolute z-20 text-white bg-gradient-to-r from-black  w-screen aspect-video">
+      <div className="absolute z-20 text-white lg:bg-gradient-to-r lg:from-black  w-screen aspect-video">
         <Link to="/">
-          <button className="text-3xl bg-red-700 text-white py-2 px-3 m-3 rounded-l-full">
+          <button className="text-xl md:text-3xl bg-red-700 text-white py-2 px-3 m-3 rounded-l-full">
             Back
           </button>
         </Link>
 
         <div className="ml-11">
-          <h1 className="font-bold text-2xl md:text-4xl mt-52">
+          <h1 className="font-bold text-2xl md:text-4xl mt-40 md:mt-52">
             {movieDetails?.title}
           </h1>
-          <p className="hidden md:hidden lg:inline-block py-6 text-lg w-2/4">
+          <p className="hidden lg:inline-block py-6 text-xs md:text-lg w-2/4">
             {movieDetails?.overview}
           </p>
         </div>
@@ -63,13 +63,12 @@ const MovieDetails = () => {
       </div>
       <div className="w-screen absolute">
         <iframe
-          className="w-screen aspect-video"
+          className="h-screen w-screen lg:h-full lg:w-screen object-cover md:aspect-video"
           src={
             "https://www.youtube.com/embed/" +
             video?.key +
             "?&autoplay=1&mute=1"
           }
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         ></iframe>
       </div>
     </div>
