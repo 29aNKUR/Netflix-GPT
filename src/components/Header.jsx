@@ -73,9 +73,9 @@ const Header = () => {
   return (
     <div>
       <div className="absolute w-screen bg-gradient-to-b from-black px-2 py-2 z-10 justify-between flex flex-col md:flex-row">
-        <Link to="/"><img className="w-44 mx-auto diplay:none md:display:block md:mx-0" src={NETFLIX_LOGO} alt="netflix logo" /></Link> 
+        <Link to="/"><img className="w-44 mx-auto display:none md:display:block md:mx-0" src={NETFLIX_LOGO} alt="netflix logo" /></Link> 
         {user && (
-          <div className="flex justify-between md:justify-normal p-4">
+          <div className="flex justify-end md:justify-normal md:p-4">
             
             {showGptSearch && (
               <select
@@ -98,7 +98,7 @@ const Header = () => {
               </button>
             ) : (
               <button
-                className="rounded-lg mx-6 px-6 h-10 bg-purple-800 text-white"
+                className="rounded-lg md:mx-6 mx-2 px-2 md:px-6 h-10 bg-purple-800 text-white"
                 onClick={() => handleGptSearchClick()}
               >
                 Gpt Search
