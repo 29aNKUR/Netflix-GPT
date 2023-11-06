@@ -72,13 +72,14 @@ const Header = () => {
 
   return (
     <div>
-      <div className="absolute w-screen bg-gradient-to-b from-black px-2 py-2 z-10 flex justify-between flex flex-col md:flex-row">
-        <Link to="/"><img className="w-44 mx-auto md:mx-0" src={NETFLIX_LOGO} alt="netflix logo" /></Link> 
+      <div className="absolute w-screen bg-gradient-to-b from-black px-2 py-2 z-10 justify-between flex flex-col md:flex-row">
+        <Link to="/"><img className="w-44 mx-auto diplay:none md:display:block md:mx-0" src={NETFLIX_LOGO} alt="netflix logo" /></Link> 
         {user && (
-          <div className="flex p-4">
+          <div className="flex justify-between md:justify-normal p-4">
+            
             {showGptSearch && (
               <select
-                className="px-2 mx-2 bg-gray-900 text-white rounded-lg"
+                className="md:px-2 md:mx-2 bg-gray-900 text-white rounded-lg"
                 onChange={handleLanguageChange}
               >
                 {SUPPORTED_LANGUAGES.map((lang) => (
@@ -104,7 +105,7 @@ const Header = () => {
               </button>
             )}
             {/* </div> */}
-            
+           
             <img
               className="w-10 h-10 rounded-lg"
               src={user?.photoUrl}
