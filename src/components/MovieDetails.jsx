@@ -56,7 +56,7 @@ const MovieDetails = () => {
         </div>
 
         {movieDetails?.genres.map((genre) => (
-          <h2 className="flex justify-between hidden md:hidden lg:inline-block text-lg  ml-11 px-3 py-1 bg-slate-700 rounded-3xl">
+          <h2 className="flex justify-between  md:hidden lg:inline-block text-lg  ml-11 px-3 py-1 bg-slate-700 rounded-3xl">
             {genre.name}
           </h2>
         ))}
