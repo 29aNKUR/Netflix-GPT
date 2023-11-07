@@ -41,16 +41,14 @@ const GptSearchBar = () => {
     const promiseArray = gptMovies.map(movie => searchMovieTMDB(movie));
 
     const tmdbResults = await Promise.all(promiseArray);
-    console.log(tmdbResults);
+    console.log("tmdbResults",tmdbResults);
 
     //Adding movie names and movie result in the store
     dispatch(addGptMovieResult({movieNames: gptMovies, movieResults: tmdbResults}));
-    
-  
   };
 
   const languageKey = useSelector((store) => store.config.lang);
-  // console.log(language)
+  // console.log(languageKey)
   return (
     <div className="pt-[20%] md:pt-[10%] flex justify-center">
       <form
