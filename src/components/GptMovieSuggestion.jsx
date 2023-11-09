@@ -7,7 +7,7 @@ const GptMovieSuggestion = () => {
 
   const {movieResults, movieNames} = gpt;
 
-  if(!movieNames) return null;
+  if(!movieNames) return 'Loading...';
    
   return (
     <div className='p-4 m-4 text-white bg-black bg-opacity-90'>
